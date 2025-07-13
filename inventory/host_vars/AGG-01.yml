@@ -1,11 +1,11 @@
 router_id: 10.250.0.1
 lacp_interfaces:
     - name: "ge-0/0/1"
-      description: "To AGG-GTEL"
+      description: "To AGG-02"
       group: ae1
 sub_interfaces:
     - name: "ae1"
-      description: "To AGG-GTEL-Area 0"
+      description: "To AGG-02-Area 0"
       ip_address: "10.255.0.9"
       subnet_mask: "30"
       vlan: 4094
@@ -16,7 +16,7 @@ sub_interfaces:
       ospf:
         area: "0.0.0.0"
     - name: "ae1"
-      description: "To AGG-GTEL-Area 1"
+      description: "To AGG-02-Area 1"
       ip_address: "10.255.1.1"
       subnet_mask: "30"
       vlan: 10
@@ -27,7 +27,7 @@ sub_interfaces:
       ospf:
         area: "0.0.0.1"
     - name: "ae1"
-      description: "To AGG-GTEL-Area 2"
+      description: "To AGG-02-Area 2"
       ip_address: "10.255.2.1"
       subnet_mask: "30"
       vlan: 20
@@ -38,7 +38,7 @@ sub_interfaces:
       ospf:
         area: "0.0.0.2"
     - name: "ae1"
-      description: "To AGG-GTEL-Area 3"
+      description: "To AGG-02-Area 3"
       ip_address: "10.255.3.1"
       subnet_mask: "30"
       vlan: 30
@@ -49,7 +49,7 @@ sub_interfaces:
       ospf:
         area: "0.0.0.3"
     - name: "ae1"
-      description: "To AGG-GTEL-Area 4"
+      description: "To AGG-02-Area 4"
       ip_address: "10.255.4.1"
       subnet_mask: "30"
       vlan: 40
