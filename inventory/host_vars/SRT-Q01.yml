@@ -1,7 +1,7 @@
 router_id: 10.250.0.5
 interfaces:
     - name: "ge-0/0/0"
-      description: "To AGG-VTC"
+      description: "To AGG-01"
       ip_address: "10.255.2.6"
       subnet_mask: "30"
       unit: 0
@@ -11,7 +11,7 @@ interfaces:
       ospf:
         area: "0.0.0.2"        
     - name: "ge-0/0/1"
-      description: "To AGG-GTEL"
+      description: "To AGG-02"
       ip_address: "10.255.2.10"
       subnet_mask: "30"
       unit: 0

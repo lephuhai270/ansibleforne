@@ -1,7 +1,7 @@
 router_id: 10.250.0.7
 interfaces:
     - name: "ge-0/0/0"
-      description: "To AGG-GTEL"
+      description: "To AGG-02"
       ip_address: "10.255.3.10"
       subnet_mask: "30"
       unit: 0

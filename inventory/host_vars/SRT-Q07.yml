@@ -1,7 +1,7 @@
 router_id: 10.250.0.6
 interfaces:
     - name: "ge-0/0/0"
-      description: "To AGG-VTC"
+      description: "To AGG-01"
       ip_address: "10.255.3.6"
       subnet_mask: "30"
       unit: 0
