@@ -1,0 +1,123 @@
+router_id: 10.250.0.2
+lacp_interfaces:
+    - name: "ge-0/0/1"
+      description: "To AGG-VTC"
+      group: ae1
+sub_interfaces:
+    - name: "ae1"
+      description: "To AGG-VTC-Area 0"
+      ip_address: "10.255.0.10"
+      subnet_mask: "30"
+      vlan: 4094
+      unit: 4094
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.0"
+    - name: "ae1"
+      description: "To AGG-VTC-Area 1"
+      ip_address: "10.255.1.2"
+      subnet_mask: "30"
+      vlan: 10
+      unit: 10
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.1"
+    - name: "ae1"
+      description: "To AGG-VTC-Area 2"
+      ip_address: "10.255.2.2"
+      subnet_mask: "30"
+      vlan: 20
+      unit: 20
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.2"
+    - name: "ae1"
+      description: "To AGG-VTC-Area 3"
+      ip_address: "10.255.3.2"
+      subnet_mask: "30"
+      vlan: 30
+      unit: 30
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.3"
+    - name: "ae1"
+      description: "To AGG-VTC-Area 4"
+      ip_address: "10.255.4.2"
+      subnet_mask: "30"
+      vlan: 40
+      unit: 40
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.4"
+interfaces:
+    - name: "ge-0/0/0"
+      description: "To IGW12"
+      ip_address: "10.255.0.14"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.0"     
+    - name: "ge-0/0/2"
+      description: "To SRT-HMN"
+      ip_address: "10.255.4.9"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.4"
+    - name: "ge-0/0/3"
+      description: "To SRT-Q01"
+      ip_address: "10.255.2.9"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.2"
+    - name: "ge-0/0/4"
+      description: "To SRT-TBH"
+      ip_address: "10.255.1.9"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.1"
+    - name: "ge-0/0/5"
+      description: "To SRT-Q09"
+      ip_address: "10.255.3.9"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.3"
+    - name: "lo0"
+      description: "Loopback"
+      ip_address: "10.250.0.2"
+      subnet_mask: "32"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.0"            
+hostname: AGG-01

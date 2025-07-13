@@ -1,0 +1,26 @@
+[AGG]
+AGG-VTC ansible_host=192.168.0.151
+AGG-GTEL ansible_host=192.168.0.152
+
+[SRT]
+SRT-HMN ansible_host=192.168.0.153
+SRT-Q01 ansible_host=192.168.0.154
+SRT-TBH ansible_host=192.168.0.155
+SRT-Q07 ansible_host=192.168.0.156
+SRT-Q09 ansible_host=192.168.0.157
+
+[juniper:children]
+AGG
+SRT
+
+[AGG:vars]
+ansible_connection=netconf
+ansible_network_os=junos
+ansible_user=root
+ansible_password=Ttc@123
+
+[SRT:vars]
+ansible_connection=netconf
+ansible_network_os=junos
+ansible_user=root
+ansible_password=Ttc@123

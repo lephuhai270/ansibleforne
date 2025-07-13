@@ -1,0 +1,33 @@
+router_id: 10.250.0.3
+interfaces:
+    - name: "ge-0/0/0"
+      description: "To AGG-VTC"
+      ip_address: "10.255.4.6"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.4"
+    - name: "ge-0/0/1"
+      description: "To AGG-GTEL"
+      ip_address: "10.255.4.10"
+      subnet_mask: "30"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.4"
+    - name: "lo0"
+      description: "Loopback"
+      ip_address: "10.250.0.3"
+      subnet_mask: "32"
+      unit: 0
+      family:
+        - inet
+        - mpls
+      ospf:
+        area: "0.0.0.4"        
+hostname: SRT-HMN      
