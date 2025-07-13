@@ -1,0 +1,20 @@
+- name: LDP label
+  junipernetworks.junos.junos_config:
+    lines:
+     - set protocols ldp explicit-null
+  tags: ldp
+  
+- name: LDP Configuration on sub_interfaces
+  junipernetworks.junos.junos_config:
+    lines:
+         - set protocols ldp interface {{ item.name}}.{{ item.unit }}
+  loop: "{{ sub_interfaces }}"
+  when: inventory_hostname in groups["AGG"]
+  tags: ldp
+
+- name: LDP Configuration on Physic interfaces
+  junipernetworks.junos.junos_config:
+    lines:
+         - set protocols ldp interface {{ item.name}}.{{ item.unit }}
+  loop: "{{ interfaces }}"
+  tags: ldp

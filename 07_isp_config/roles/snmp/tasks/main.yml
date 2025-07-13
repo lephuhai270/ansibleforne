@@ -1,0 +1,4 @@
+---
+- name: Configure SNMP on Juniper
+  junipernetworks.junos.junos_config:
+    lines: "{{ lookup('template', 'snmp.j2') }}"

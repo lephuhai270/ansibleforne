@@ -1,0 +1,5 @@
+{% for sub_int in sub_interfaces %}
+set interfaces {{ sub_int.name }} unit {{ sub_int.unit }} vlan-id {{ sub_int.vlan }}
+set interfaces {{ sub_int.name }} unit {{ sub_int.unit }} family {{ sub_int.family[0] }} address {{ sub_int.ip_address }}/{{ sub_int.subnet_mask }}
+set interfaces {{ sub_int.name }} unit {{ sub_int.unit }} family {{ sub_int.family[1] }}
+{% endfor %}

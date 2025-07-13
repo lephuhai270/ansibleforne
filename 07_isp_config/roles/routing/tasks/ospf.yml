@@ -1,0 +1,46 @@
+---
+- name: OSPF Process - Router ID
+  junipernetworks.junos.junos_config:
+    lines:
+     - set routing-options router-id {{ router_id }}
+- name: Configure OSPF on AGGs
+  when: inventory_hostname in groups["AGG"]
+  block:
+  - name: OSPF on Sub-Interface
+    junipernetworks.junos.junos_ospf_interfaces:
+      config:
+        - name: "{{ item.name }}.{{item.unit}}"
+          address_family:
+            - afi: 'ipv4'
+              processes:
+                area:
+                  area_id: "{{ item.ospf.area }}"
+                interface_type: p2p
+    loop: "{{ sub_interfaces }}"
+
+  - name: Enable LDP synchronization on Sub interface
+    junipernetworks.junos.junos_config:
+      lines:
+      - set protocols ospf area {{ item.ospf.area }}  interface {{ item.name }}.{{ item.unit }} ldp-synchronization
+    loop: "{{ sub_interfaces }}"
+  tags: ospf
+
+- name: OSPF on Physic Interface
+  junipernetworks.junos.junos_ospf_interfaces:
+    config:
+      - name: "{{ item.name }}.{{item.unit}}"
+        address_family:
+          - afi: 'ipv4'
+            processes:
+              area:
+                area_id: "{{ item.ospf.area }}"
+              interface_type: p2p
+  loop: "{{ interfaces }}"
+  tags: ospf
+
+- name: Enable LDP synchronization on Interface
+  junipernetworks.junos.junos_config:
+    lines:
+    - set protocols ospf area {{ item.ospf.area }}  interface {{ item.name }}.{{ item.unit }} ldp-synchronization
+  loop: "{{ interfaces }}"
+  tags: ospf

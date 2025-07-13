@@ -1,0 +1,9 @@
+---
+- name: Deploy configuration on routers
+  hosts: SRT, AGG
+  gather_facts: no
+  roles:
+    #- snmp
+    - interfaces
+    - routing
+    - hostname

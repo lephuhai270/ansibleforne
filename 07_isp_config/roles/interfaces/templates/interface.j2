@@ -1,0 +1,4 @@
+{% for iface in interfaces %}
+set interfaces {{ iface.name }} unit {{ iface.unit }} family {{ iface.family[0] }} address {{ iface.ip_address }}/{{ iface.subnet_mask }}
+set interfaces {{ iface.name }} unit {{ iface.unit }} family {{ iface.family[1] }}
+{% endfor %}

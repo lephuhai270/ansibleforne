@@ -1,0 +1,23 @@
+- name: MPLS label
+  junipernetworks.junos.junos_config:
+    lines:
+     - set protocols mpls explicit-null
+     - set protocols mpls icmp-tunneling
+     - set protocols mpls no-cspf
+     - set protocols mpls ipv6-tunneling
+  tags: mpls
+  
+- name: MPLS Configuration on sub_interfaces
+  junipernetworks.junos.junos_config:
+    lines:
+         - set protocols mpls interface {{ item.name}}.{{ item.unit }}
+  loop: "{{ sub_interfaces }}"
+  when: inventory_hostname in groups["AGG"]
+  tags: mpls
+
+- name: MPLS Configuration on Physic interfaces
+  junipernetworks.junos.junos_config:
+    lines:
+         - set protocols mpls interface {{ item.name}}.{{ item.unit }}
+  loop: "{{ interfaces }}"
+  tags: mpls

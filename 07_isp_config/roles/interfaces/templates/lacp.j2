@@ -1,0 +1,8 @@
+{% for iface in lacp_interfaces %}
+  set interfaces {{ iface.name }} description "{{ iface.description }}"
+  set interfaces {{ iface.name }} gigether-options 802.3ad {{ iface.group}}
+  set interfaces {{ iface.group }} mtu 9192
+  set interfaces {{ iface.group }} aggregated-ether-options lacp active
+  set interfaces {{ iface.group }} flexible-vlan-tagging
+
+{% endfor %}

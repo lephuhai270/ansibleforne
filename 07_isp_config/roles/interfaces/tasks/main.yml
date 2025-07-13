@@ -1,0 +1,21 @@
+# - name: Config description on physic interface
+#   ansible.builtin.template:
+#       src: templates/desc.j2
+#      # dest: "07_isp_config/demo/{{ inventory_hostname }}_desc_conf.txt"
+#       lines: "{{ lookup('template', 'desc.j2') }}"
+
+- name: Config ip address on physic interface
+  junipernetworks.junos.junos_config:
+    lines: "{{ lookup('template', 'interface.j2') }}"
+  tags: phy_iface
+
+- name: Configure full LACP on AGGs device
+  when: inventory_hostname in groups["AGG"]
+  block:
+  - name: Config lacp on AGGs device
+    junipernetworks.junos.junos_config:
+      lines: "{{ lookup('template', 'lacp.j2') }}"
+
+  - name: Config subint on LAG interface
+    junipernetworks.junos.junos_config:
+      lines: "{{ lookup('template', 'subint.j2') }}"

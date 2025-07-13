@@ -1,0 +1,3 @@
+{% for interface in interfaces %}
+set interfaces {{ interface.name }} description "{{ interface.description }}"
+{% endfor %} 

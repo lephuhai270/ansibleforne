@@ -1,0 +1,8 @@
+---
+# tasks file for hostname
+- name: Create a  hostname on juniper
+  junipernetworks.junos.junos_hostname:
+    config:
+      hostname: "{{hostname}}"
+    state: replaced
+  tags: hostname
